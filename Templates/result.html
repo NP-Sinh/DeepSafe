@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DeepSafe - Kết quả</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Kết quả hình ảnh</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Ảnh gốc</h4>
+        <img src="{{ original }}" class="img-fluid" alt="Original Image">
+      </div>
+      <div class="col-md-6">
+        <h4>Ảnh đã nhúng watermark</h4>
+        <img src="{{ watermarked }}" class="img-fluid" alt="Watermarked Image">
+      </div>
+    </div>
+    {% if watermark %}
+      <div class="alert alert-info mt-3">
+        Thông tin watermark được trích xuất: <strong>{{ watermark }}</strong>
+      </div>
+    {% endif %}
+    <form action="/simulate" method="post" class="mt-3">
+      <!-- Ẩn đường dẫn ảnh để sử dụng trong mô phỏng deepfake -->
+      <input type="hidden" name="image_path" value="{{ watermarked }}">
+      <button type="submit" class="btn btn-warning">Mô phỏng tấn công deepfake</button>
+    </form>
+    <a href="/" class="btn btn-secondary mt-3">Tải ảnh mới</a>
+  </div>
+</body>
+</html>
