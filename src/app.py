@@ -1,4 +1,3 @@
-# src/app.py
 from flask import Flask, render_template, request, redirect, url_for
 from face_swap.swap import perform_face_swap
 import os
@@ -26,7 +25,6 @@ def swapface():
     # Gọi hàm thực hiện face swap, hàm này bao gồm cả biến dạng bảo vệ
     result_path = perform_face_swap(filepath)
     
-    # Đảm bảo đường dẫn hiển thị trên giao diện phù hợp với static folder nếu cần
     static_path = result_path.split('static/')[-1]
     return render_template('result.html', result_image=static_path)
 
