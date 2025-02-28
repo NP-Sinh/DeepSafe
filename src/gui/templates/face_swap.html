@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Swap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Face Swap</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label for="face_a">Ảnh khuôn mặt A:</label>
+            <input type="file" id="face_a" name="face_a" accept="image/*">
+        </div>
+        <div>
+            <label for="face_b">Ảnh khuôn mặt B:</label>
+            <input type="file" id="face_b" name="face_b" accept="image/*">
+        </div>
+        <button type="submit">Hoán đổi</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <p><a href="{{ url_for('home') }}">Quay lại Trang chủ</a></p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả Face Swap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Kết quả Face Swap</h1>
+    <div class="result-images">
+        <div>
+            <h3>Ảnh tái tạo A</h3>
+            <img src="{{ rec_a }}" alt="Rec A" width="256">
+        </div>
+        <div>
+            <h3>Ảnh tái tạo B</h3>
+            <img src="{{ rec_b }}" alt="Rec B" width="256">
+        </div>
+        <div>
+            <h3>Ảnh hoán đổi A→B</h3>
+            <img src="{{ swapped_a }}" alt="Swapped A->B" width="256">
+        </div>
+        <div>
+            <h3>Ảnh hoán đổi B→A</h3>
+            <img src="{{ swapped_b }}" alt="Swapped B->A" width="256">
+        </div>
+    </div>
+    <p><a href="{{ url_for('faceswap_page') }}">Quay lại</a> | <a href="{{ url_for('home') }}">Trang Chủ</a></p>
+</body>
+</html>

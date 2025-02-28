@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhúng Watermark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Nhúng Watermark (DeepSafe)</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="image">Chọn ảnh gốc:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <button type="submit">Nhúng Watermark</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% if watermarked_image %}
+        <p>Ảnh đã nhúng watermark:</p>
+        <img src="{{ watermarked_image }}" alt="Watermarked Image" width="256">
+    {% endif %}
+    <p><a href="{{ url_for('home') }}">Quay lại Trang chủ</a></p>
+</body>
+</html>

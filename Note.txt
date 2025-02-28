@@ -1,0 +1,5 @@
+2. chạy train.py
+python -m src.train
+
+3. Chạy app.py
+python -m src.gui.app

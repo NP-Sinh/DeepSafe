@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>DeepSafe - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>DeepSafe AI</h1>
+    <p>Chọn chức năng:</p>
+    <ul>
+        <li><a href="{{ url_for('watermark_page') }}">Nhúng Watermark</a></li>
+        <li><a href="{{ url_for('faceswap_page') }}">Hoán đổi Khuôn mặt</a></li>
+    </ul>
+</body>
+</html>
